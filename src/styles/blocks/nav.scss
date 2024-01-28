@@ -1,0 +1,44 @@
+.nav {
+  &__list :not(:last-child){
+    margin-bottom: 32px;
+  }
+
+  &__list :last-child{
+    margin-bottom: 40px;
+  }
+
+  &__link {
+    position: relative;
+
+    color: inherit;
+    font-family: inherit;
+    font-size: 22px;
+    line-height: 22px;
+    letter-spacing: 2px;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -8px;
+
+      display: block;
+      height: 1px;
+      width: 100%;
+
+      background-color: $menu-text-color;
+      transition: transform $transition-duration;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    @include onDesktop {
+      &:hover::after {
+        transform: scale(1);
+      }
+    }
+
+  }
+}
+
